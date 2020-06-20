@@ -1,4 +1,4 @@
-export var getFavicon = function () {
+export var getFavicon = function (websiteUrl) {
     var favicon = undefined;
     var nodeList = document.getElementsByTagName("link");
     for (var i = 0; i < nodeList.length; i++) {

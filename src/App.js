@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Dashboard from './components/Dashboard/index'
+import AddWebsite from './components/AddWebsite/index'
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
           Learn React
         </a>
       </header> */}
-      <Dashboard />
+      <AddWebsite />
     </div>
   );
 }

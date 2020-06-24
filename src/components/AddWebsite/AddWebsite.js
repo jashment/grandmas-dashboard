@@ -2,7 +2,7 @@ import React from 'react'
 import { AppBar, Button, Typography, TextField } from '@material-ui/core'
 // import { Add } from '@material-ui/icons'
 
-const AddWebsite = ({ getWebsiteImage, handleChange, favicon }) => {
+const AddWebsite = ({ getWebsiteImage, handleChange }) => {
     return (
         <div>
             <AppBar position="relative">
@@ -13,7 +13,6 @@ const AddWebsite = ({ getWebsiteImage, handleChange, favicon }) => {
                 <Button type="submit">Add</Button>
                 <TextField onChange={handleChange} />
             </form>
-            <img src={favicon} alt="Icon" />
         </div>
     )
 }

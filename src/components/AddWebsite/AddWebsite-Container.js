@@ -36,7 +36,7 @@ const AddWebsiteContainer = () => {
 
     const getWebsiteImage = event => {
         event.preventDefault()
-        firebase.database().ref('/websites').push({ url: websiteUrl })
+        firebase.database().ref('/websites').push({ url: websiteUrl, favicon: websiteUrl + '/favicon.ico' })
     }
 
     return (

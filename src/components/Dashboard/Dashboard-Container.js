@@ -4,12 +4,12 @@ import Dashboard from './Dashboard'
 
 
 const DashboardContainer = () => {
-    const [imagesFromFirebase, setImages] = useState()
+    const [imagesFromFirebase, setImagesFromFirebase] = useState()
 
     const getImagesFromFirebase = () => {
-        firebase.database().ref('websites').once('value').then(snapshot => {
-            console.log(snapshot.val())
-            setImages(snapshot.val())
+        firebase.database().ref(`websites`).once('value').then(snapshot => {
+            const images = snapshot.val()
+            setImagesFromFirebase(images)
         })
     }
 

@@ -13,6 +13,12 @@ const DashboardContainer = () => {
         })
     }
 
+    const deleteUrlFromFirebase = () => {
+        firebase.database.ref('websites').once('value').then(snapshot => {
+            // const urls
+        })
+    }
+
     useEffect(() => {
         getImagesFromFirebase()
     }, [])

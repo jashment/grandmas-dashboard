@@ -1,6 +1,7 @@
 import React from 'react'
-import { Card, Paper, Table, TableBody, TableCell } from '@material-ui/core'
+import { Button, Card, Paper, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 import AddWebsite from '../AddWebsite'
+import './Dashboard.css'
 
 const Dashboard = ({ imagesFromFirebase }) => {
     if (!imagesFromFirebase) {
@@ -11,27 +12,31 @@ const Dashboard = ({ imagesFromFirebase }) => {
             <AddWebsite />
             <Paper style={{ minHeight: '100 %' }}><Table>
                 <TableBody>
-                    {Object.values(imagesFromFirebase).map(image => {
-                        return (
+                    <TableRow className="cardRow">
+                        {Object.values(imagesFromFirebase).map(image => {
+                            return (
 
-                            <TableCell>
-                                <a
-                                    href={image.url}>
-                                    <Card
-                                        style={{ width: '50px', margin: '0 auto' }}
-                                    >
-                                        <img
-                                            src={image.favicon}
-                                            key={image.url}
-                                            alt="Icon"
-                                        />
+                                <TableCell className="cardCell">
+                                    <a
+                                        href={image.url}>
+                                        <Card className="imgCard">
+                                            <img
+                                                src={`http://www.google.com/s2/favicons?domain=${image.url}`}
+                                                key={image.url}
+                                                alt="Icon"
+                                            />
 
-                                    </Card> <div><p style={{ margin: '0 auto' }}>{image.url}</p></div>
-                                </a>
-                            </TableCell>
+                                        </Card>
+                                        <div>
+                                            <p>{image.url}</p>
+                                            <Button>Delete</Button>
+                                        </div>
+                                    </a>
+                                </TableCell>
 
-                        )
-                    })}
+                            )
+                        })}
+                    </TableRow>
                 </TableBody>
             </Table>
             </Paper>

@@ -14,8 +14,6 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase }) => {
                 <TableBody>
                     <TableRow className="cardRow">
                         {Object.keys(imagesFromFirebase).map((key, index) => {
-                            console.log(key)
-                            console.log(index)
                             return (
                                 <TableCell className="cardCell">
                                     <a

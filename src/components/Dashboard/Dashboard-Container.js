@@ -13,10 +13,8 @@ const DashboardContainer = () => {
         })
     }
 
-    const deleteUrlFromFirebase = () => {
-        firebase.database.ref('websites').once('value').then(snapshot => {
-            // const urls
-        })
+    const deleteUrlFromFirebase = (url) => {
+        firebase.database().ref(`websites/${url}`).remove()
     }
 
     useEffect(() => {
@@ -25,6 +23,7 @@ const DashboardContainer = () => {
 
     return (
         <Dashboard
+            deleteUrlFromFirebase={deleteUrlFromFirebase}
             imagesFromFirebase={imagesFromFirebase}
         />
     )

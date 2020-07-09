@@ -3,7 +3,7 @@ import { Button, Card, Paper, Table, TableBody, TableRow, TableCell } from '@mat
 import AddWebsite from '../AddWebsite'
 import './Dashboard.css'
 
-const Dashboard = ({ imagesFromFirebase }) => {
+const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase }) => {
     if (!imagesFromFirebase) {
         return null
     }
@@ -13,27 +13,26 @@ const Dashboard = ({ imagesFromFirebase }) => {
             <Paper style={{ minHeight: '100 %' }}><Table>
                 <TableBody>
                     <TableRow className="cardRow">
-                        {Object.values(imagesFromFirebase).map(image => {
+                        {Object.keys(imagesFromFirebase).map((key, index) => {
+                            console.log(key)
+                            console.log(index)
                             return (
-
                                 <TableCell className="cardCell">
                                     <a
-                                        href={image.url}>
+                                        href={imagesFromFirebase[key].url}>
                                         <Card className="imgCard">
                                             <img
-                                                src={`http://www.google.com/s2/favicons?domain=${image.url}`}
-                                                key={image.url}
+                                                src={`http://www.google.com/s2/favicons?domain=${imagesFromFirebase[key].url}`}
+                                                key={imagesFromFirebase[key].url}
                                                 alt="Icon"
                                             />
-
                                         </Card>
                                         <div>
-                                            <p>{image.url}</p>
-                                            <Button>Delete</Button>
+                                            <p>{imagesFromFirebase[key].url}</p>
                                         </div>
                                     </a>
+                                    <Button onClick={() => { deleteUrlFromFirebase(key) }}>Delete</Button>
                                 </TableCell>
-
                             )
                         })}
                     </TableRow>

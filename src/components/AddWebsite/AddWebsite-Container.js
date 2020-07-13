@@ -21,17 +21,11 @@ firebase.initializeApp(firebaseConfig)
 
 const AddWebsiteContainer = () => {
     const [websiteUrl, setWebsiteUrl] = useState()
-
+    const [favicon, setFavicon] = useState()
 
     const handleChange = event => {
         event.preventDefault()
-        if (!event.target.value.includes('http://www')) {
-            setWebsiteUrl('https://www.' + event.target.value)
-        } else if (!event.target.value.includes('http://')) {
-            setWebsiteUrl('https://' + event.target.value)
-        } else {
-            setWebsiteUrl(event.target.value)
-        }
+        setWebsiteUrl(event.target.value)
     }
 
     const getWebsiteImage = event => {

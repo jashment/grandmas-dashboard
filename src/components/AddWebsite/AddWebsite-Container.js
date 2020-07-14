@@ -21,7 +21,6 @@ firebase.initializeApp(firebaseConfig)
 
 const AddWebsiteContainer = () => {
     const [websiteUrl, setWebsiteUrl] = useState()
-    const [favicon, setFavicon] = useState()
 
     const handleChange = event => {
         event.preventDefault()
@@ -30,7 +29,9 @@ const AddWebsiteContainer = () => {
 
     const getWebsiteImage = event => {
         event.preventDefault()
-        firebase.database().ref('/websites').push({ url: websiteUrl, favicon: websiteUrl + '/favicon.ico' })
+        firebase.database().ref('/websites').push({
+            url: websiteUrl, favicon: `https://www.google.com/s2/favicons?sz=64&domain_url=${websiteUrl}`
+        })
     }
 
     return (

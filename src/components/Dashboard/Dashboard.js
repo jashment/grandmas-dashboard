@@ -3,14 +3,14 @@ import { Button, Card, Paper, Table, TableBody, TableRow, TableCell } from '@mat
 import AddWebsite from '../AddWebsite'
 import './Dashboard.css'
 
-const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase, setImages }) => {
+const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase, }) => {
     if (!imagesFromFirebase) {
         return null
     }
     return (
 
         < div >
-            {setImages(imagesFromFirebase)}
+
             <AddWebsite />
             <Paper style={{ minHeight: '100 %' }}><Table>
                 <TableBody>
@@ -22,7 +22,7 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase, setImages }) => 
                                         href={imagesFromFirebase[key].url}>
                                         <Card className="imgCard">
                                             <img
-                                                src={`http://favicongrabber.com/api/grab/${imagesFromFirebase[key].url}`}
+                                                src={`https://www.google.com/s2/favicons?sz=64&domain_url=${imagesFromFirebase[key].url}`}
                                                 key={imagesFromFirebase[key].url}
                                                 alt="Icon"
                                             />

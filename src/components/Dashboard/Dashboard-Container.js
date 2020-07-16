@@ -19,7 +19,7 @@ const DashboardContainer = () => {
 
     useEffect(() => {
         getImagesFromFirebase()
-    }, [])
+    }, [imagesFromFirebase])
 
     return (
         <Dashboard

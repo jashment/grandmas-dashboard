@@ -1,8 +1,8 @@
 import React from 'react'
 import { AppBar, Button, Typography, TextField } from '@material-ui/core'
-// import { Add } from '@material-ui/icons'
 
-const AddWebsite = ({ getWebsiteImage, handleChange }) => {
+
+const AddWebsite = ({ getWebsiteImage, handleChange, websiteUrl, setWebsiteUrl }) => {
     return (
         <div>
             <AppBar position="relative">
@@ -11,7 +11,7 @@ const AddWebsite = ({ getWebsiteImage, handleChange }) => {
 
             <form onSubmit={getWebsiteImage}>
                 <Button type="submit">Add</Button>
-                <TextField onChange={handleChange} />
+                <TextField value={websiteUrl || ''} onBlur={event => event.target.value = null} onChange={handleChange} />
             </form>
         </div>
     )

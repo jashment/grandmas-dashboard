@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import AddWebsite from './AddWebsite'
-import { getFavicon } from '../../functions/siteScraper'
 import * as firebase from 'firebase'
 import dotenv from 'dotenv'
 
@@ -24,7 +23,8 @@ const AddWebsiteContainer = () => {
 
     const handleChange = event => {
         event.preventDefault()
-        setWebsiteUrl(event.target.value)
+        let inputUrl = event.target.value
+        setWebsiteUrl(inputUrl)
     }
 
     const getWebsiteImage = event => {
@@ -38,6 +38,8 @@ const AddWebsiteContainer = () => {
         <AddWebsite
             getWebsiteImage={getWebsiteImage}
             handleChange={handleChange}
+            setWebsiteUrl={setWebsiteUrl}
+            websiteUrl={websiteUrl}
         />
     )
 }

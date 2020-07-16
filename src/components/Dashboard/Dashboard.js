@@ -10,7 +10,6 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase, }) => {
     return (
 
         < div >
-
             <AddWebsite />
             <Paper style={{ minHeight: '100 %' }}><Table>
                 <TableBody>

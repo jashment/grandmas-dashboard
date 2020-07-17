@@ -17,7 +17,10 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase, }) => {
                             return (
                                 <TableCell className="cardCell">
                                     <a
-                                        href={imagesFromFirebase[key].url}>
+                                        href={`//${imagesFromFirebase[key].url}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         <Card className="imgCard">
                                             <img
                                                 src={`${imagesFromFirebase[key].favicon}`}

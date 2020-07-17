@@ -11,7 +11,7 @@ const AddWebsite = ({ getWebsiteImage, handleChange, websiteUrl, setWebsiteUrl }
 
             <form onSubmit={getWebsiteImage}>
                 <Button type="submit">Add</Button>
-                <TextField value={websiteUrl || ''} onBlur={event => event.target.value = null} onChange={handleChange} />
+                <TextField value={websiteUrl || ''} onBlur={event => event.target.value = ''} onChange={handleChange} />
             </form>
         </div>
     )

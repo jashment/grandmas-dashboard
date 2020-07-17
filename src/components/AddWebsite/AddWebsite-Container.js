@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import AddWebsite from './AddWebsite'
 import * as firebase from 'firebase'
 import dotenv from 'dotenv'
@@ -23,15 +23,15 @@ const AddWebsiteContainer = () => {
 
     const handleChange = event => {
         event.preventDefault()
-        let inputUrl = event.target.value
-        setWebsiteUrl(inputUrl)
+        setWebsiteUrl(event.target.value)
     }
 
     const getWebsiteImage = event => {
         event.preventDefault()
         firebase.database().ref('/websites').push({
-            url: websiteUrl, favicon: `https://www.google.com/s2/favicons?sz=64&domain_url=${websiteUrl}`
+            url: websiteUrl, favicon: `https://api.faviconkit.com/${websiteUrl}/144`
         })
+        setWebsiteUrl(null)
     }
 
     return (

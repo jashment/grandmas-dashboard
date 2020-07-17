@@ -5,11 +5,10 @@ import './Dashboard.css'
 
 const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase, }) => {
     if (!imagesFromFirebase) {
-        return null
+        return <div className="addWebsiteForm"><AddWebsite /></div>
     }
     return (
-
-        < div >
+        <div>
             <AddWebsite />
             <Paper style={{ minHeight: '100 %' }}><Table>
                 <TableBody>
@@ -21,7 +20,7 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase, }) => {
                                         href={imagesFromFirebase[key].url}>
                                         <Card className="imgCard">
                                             <img
-                                                src={`https://www.google.com/s2/favicons?sz=64&domain_url=${imagesFromFirebase[key].url}`}
+                                                src={`${imagesFromFirebase[key].favicon}`}
                                                 key={imagesFromFirebase[key].url}
                                                 alt="Icon"
                                             />

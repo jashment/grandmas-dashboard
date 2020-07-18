@@ -2,7 +2,9 @@ import React from 'react'
 import { AppBar, Button, Typography, TextField } from '@material-ui/core'
 
 
-const AddWebsite = ({ getWebsiteImage, handleChange, websiteUrl, setWebsiteUrl }) => {
+const AddWebsite = ({ getWebsiteImage, handleChange, websiteUrl }) => {
+    // if (!loading) { }
+
     return (
         <div>
             <AppBar position="relative">
@@ -11,10 +13,11 @@ const AddWebsite = ({ getWebsiteImage, handleChange, websiteUrl, setWebsiteUrl }
 
             <form onSubmit={getWebsiteImage}>
                 <Button type="submit">Add</Button>
-                <TextField value={websiteUrl || ''} onBlur={event => event.target.value = ''} onChange={handleChange} />
+                <TextField value={websiteUrl || ''} onChange={handleChange} />
             </form>
         </div>
     )
 }
+
 
 export default AddWebsite

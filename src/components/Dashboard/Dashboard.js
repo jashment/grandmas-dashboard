@@ -3,9 +3,9 @@ import { Button, Card, Paper, Table, TableBody, TableRow, TableCell } from '@mat
 import AddWebsite from '../AddWebsite'
 import './Dashboard.css'
 
-const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase, }) => {
+const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase }) => {
     if (!imagesFromFirebase) {
-        return <div className="addWebsiteForm"><AddWebsite /></div>
+        return <AddWebsite />
     }
     return (
         <div>
@@ -36,8 +36,6 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase, }) => {
                                 </TableCell>
                             )
                         })}
-
-                        {/* {Object.forEach()} */}
                     </TableRow>
                 </TableBody>
             </Table>

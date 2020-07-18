@@ -22,12 +22,10 @@ const AddWebsiteContainer = () => {
     const [websiteUrl, setWebsiteUrl] = useState()
 
     const handleChange = event => {
-        event.preventDefault()
         setWebsiteUrl(event.target.value)
     }
 
     const getWebsiteImage = event => {
-        event.preventDefault()
         firebase.database().ref('/websites').push({
             url: websiteUrl, favicon: `https://api.faviconkit.com/${websiteUrl}/144`
         })

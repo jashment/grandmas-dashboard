@@ -5,11 +5,11 @@ import './Dashboard.css'
 
 const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase }) => {
     if (!imagesFromFirebase) {
-        return <AddWebsite />
+        return null
     }
     return (
         <div>
-            <AddWebsite />
+            {/* <AddWebsite /> */}
             <Paper style={{ minHeight: '100 %' }}><Table>
                 <TableBody>
                     <TableRow className="cardRow">

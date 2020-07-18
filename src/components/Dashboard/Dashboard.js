@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button, Card, Paper, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
-import AddWebsite from '../AddWebsite'
 import './Dashboard.css'
 
 const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase }) => {
@@ -9,7 +8,6 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase }) => {
     }
     return (
         <div>
-            {/* <AddWebsite /> */}
             <Paper style={{ minHeight: '100 %' }}><Table>
                 <TableBody>
                     <TableRow className="cardRow">

@@ -24,11 +24,7 @@ const DashboardContainer = () => {
     }
 
     useEffect(() => {
-
         getImagesFromFirebase()
-
-        console.log('thunk')
-
     }, [])
 
     return (

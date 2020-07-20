@@ -1,0 +1,11 @@
+.helpModal {
+    text-align: center;
+}
+
+p.modalText {
+    font-size: 2rem;
+}
+
+.dontShowBtn span {
+    color: red;
+}

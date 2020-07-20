@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
 import Dashboard from './components/Dashboard'
-import AddWebsite from './components/AddWebsite'
+import HelpMessage from './components/HelpMessage'
+// import AddWebsite from './components/AddWebsite'
 
 const App = () => {
   return (
     <div className="App">
-      <AddWebsite />
+      {/* <AddWebsite /> */}
+      <HelpMessage />
       <Dashboard />
     </div>
   );

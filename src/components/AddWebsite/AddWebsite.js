@@ -3,7 +3,6 @@ import { AppBar, Button, Typography, TextField } from '@material-ui/core'
 
 
 const AddWebsite = ({ getWebsiteImage, handleChange, websiteUrl }) => {
-    // if (!loading) { }
 
     return (
         <div>

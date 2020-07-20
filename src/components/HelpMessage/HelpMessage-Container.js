@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
+import HelpMessage from './HelpMessage'
 
 
-const HelpMessage = () => {
+const HelpMessageContainer = () => {
+    const [open, setOpen] = useState(true);
 
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    return (
+        <HelpMessage
+            handleOpen={handleOpen}
+            handleClose={handleClose}
+            open={open}
+        />
+    )
 }
-export default HelpMessage
+export default HelpMessageContainer

@@ -25,6 +25,7 @@ const HelpMessageContainer = () => {
             const showValue = snapshot.val()
             Object.values(showValue).map(showOrNo => {
                 setShowBoolValue(showOrNo.dontShowAgain)
+                return []
             })
         })
         if (showBoolValue === false) {

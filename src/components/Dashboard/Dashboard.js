@@ -8,35 +8,36 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase }) => {
     }
     return (
         <div>
-            <Paper style={{ minHeight: '100 %' }}><Table>
-                <TableBody>
-                    <TableRow className="cardRow">
-                        {Object.keys(imagesFromFirebase).map((key, index) => {
-                            return (
-                                <TableCell className="cardCell">
-                                    <a
-                                        href={`//${imagesFromFirebase[key].url}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <Card className="imgCard">
-                                            <img
-                                                src={`${imagesFromFirebase[key].favicon}`}
-                                                key={imagesFromFirebase[key].url}
-                                                alt="Icon"
-                                            />
-                                        </Card>
-                                        <div>
-                                            <p>{imagesFromFirebase[key].url}</p>
-                                        </div>
-                                    </a>
-                                    <Button onClick={() => { deleteUrlFromFirebase(key) }}>Delete</Button>
-                                </TableCell>
-                            )
-                        })}
-                    </TableRow>
-                </TableBody>
-            </Table>
+            <Paper>
+                <Table>
+                    <TableBody>
+                        <TableRow className="cardRow">
+                            {Object.keys(imagesFromFirebase).map((key, index) => {
+                                return (
+                                    <TableCell className="cardCell">
+                                        <a
+                                            href={`//${imagesFromFirebase[key].url}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <Card className="imgCard">
+                                                <img
+                                                    src={`${imagesFromFirebase[key].favicon}`}
+                                                    key={imagesFromFirebase[key].url}
+                                                    alt="Icon"
+                                                />
+                                            </Card>
+                                            <div>
+                                                <p>{imagesFromFirebase[key].url}</p>
+                                            </div>
+                                        </a>
+                                        <Button onClick={() => { deleteUrlFromFirebase(key) }}>Delete</Button>
+                                    </TableCell>
+                                )
+                            })}
+                        </TableRow>
+                    </TableBody>
+                </Table>
             </Paper>
         </div >
     )

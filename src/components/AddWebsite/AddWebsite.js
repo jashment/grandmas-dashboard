@@ -7,7 +7,7 @@ const AddWebsite = ({ getWebsiteImage, handleChange, websiteUrl }) => {
     return (
         <div>
             <AppBar position="relative">
-                <Typography edge="end" variant="h1">Grandma's Dashboard</Typography>
+                <Typography edge="end" variant="h2">Grandma's Dashboard</Typography>
             </AppBar>
 
             <form onSubmit={getWebsiteImage}>

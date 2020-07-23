@@ -6,7 +6,7 @@ import './HelpMessage.css'
 
 const HelpMessage = ({ dontShowAgain, handleClose, handleDontShow, open }) => {
     return (
-        !dontShowAgain ? (
+        dontShowAgain === true ? (
             <div>
                 <Dialog
                     maxWidth="md"

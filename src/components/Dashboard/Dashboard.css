@@ -1,6 +1,7 @@
 tr.cardRow {
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
 }
 
 td.cardCell {
@@ -27,4 +28,20 @@ p {
 
 div.addWebsiteForm div form {
     padding: 25%;
+}
+
+@media only screen and (max-width: 600px) {
+    tr.cardRow {
+        justify-content: space-evenly;
+    }
+    .imgCard {
+        width: 65px;
+        height: 65px;
+    }
+    img {
+        margin: auto;
+        display: block;
+        width: 65px;
+        height: 65px;
+    }
 }

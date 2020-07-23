@@ -11,11 +11,9 @@ const DashboardContainer = () => {
         setLoading(true)
         firebase.database().ref(`websites`).once('value').then(snapshot => {
             const images = snapshot.val()
-            console.log(images)
             setImagesFromFirebase(images)
         })
         setLoading(false)
-
     }
 
     const deleteUrlFromFirebase = (url) => {

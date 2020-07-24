@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import AddWebsite from './AddWebsite'
 import * as firebase from 'firebase'
 import dotenv from 'dotenv'

@@ -1,0 +1,19 @@
+@media only screen and (max-width: 600px) {
+    form.addFormWeb {
+        display: none;
+    }
+    button.addFormMobile {
+        bottom: 0;
+        position: absolute;
+        right: 0;
+    }
+    button.addFormMobile span svg {
+        font-size: 4rem;
+    }
+}
+
+@media only screen and (min-width: 605px) {
+    button.addFormMobile {
+        display: none;
+    }
+}

@@ -1,3 +1,9 @@
+header h2 {
+    background: #FF4E50;  
+    background: #2980B9;  
+    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); 
+    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); 
+}
 @media only screen and (max-width: 600px) {
     form.addFormWeb {
         display: none;

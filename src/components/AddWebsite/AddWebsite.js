@@ -10,7 +10,7 @@ const AddWebsite = ({ getWebsiteImage, handleChange, handleShow, handleClose, we
     return (
         <div>
             <AppBar position="relative">
-                <Typography edge="end" variant="h2">Grandma's Dashboard</Typography>
+                <Typography edge="end" variant="h2">Visual Bookmark</Typography>
             </AppBar>
 
             <form className="addFormWeb" onSubmit={getWebsiteImage}>

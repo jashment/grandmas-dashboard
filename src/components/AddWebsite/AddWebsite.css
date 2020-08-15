@@ -12,9 +12,13 @@ header h2 {
         bottom: 0;
         position: absolute;
         right: 0;
+        padding: 0;
     }
     button.addFormMobile span svg {
         font-size: 4rem;
+    }
+    button.addFormMobile span svg path{
+        fill:#2980B9;
     }
 }
 

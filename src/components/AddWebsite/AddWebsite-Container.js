@@ -20,16 +20,33 @@ firebase.initializeApp(firebaseConfig)
 
 const AddWebsiteContainer = () => {
     const [websiteUrl, setWebsiteUrl] = useState()
+    const [signedInUser, setSignedInUser] = useState()
 
     const handleChange = event => {
         setWebsiteUrl(event.target.value)
+        const currentUser = firebase.auth().currentUser
+        firebase.database().ref('/users').once('value').then(snap => {
+            const allUsers = snap.val()
+            return Object.values(allUsers).map(fireUser => {
+                if (fireUser.uid === currentUser.uid) {
+                    setSignedInUser(fireUser.uid)
+                }
+                return {}
+            })
+        })
+        console.log(signedInUser)
     }
 
     const getWebsiteImage = () => {
-        firebase.database().ref('/websites').push({
-            url: websiteUrl, favicon: `https://api.faviconkit.com/${websiteUrl}/144`
-        })
-        setWebsiteUrl(null)
+        const currentUser = firebase.auth().currentUser.uid
+        console.log(signedInUser)
+        console.log(currentUser)
+        if (currentUser === signedInUser) {
+            firebase.database().ref(`/users/${currentUser}/websites`).push({
+                url: websiteUrl, favicon: `https://api.faviconkit.com/${websiteUrl}/144`
+            })
+            setWebsiteUrl(null)
+        }
     }
 
 

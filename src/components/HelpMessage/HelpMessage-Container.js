@@ -5,8 +5,7 @@ import firebase from 'firebase'
 
 const HelpMessageContainer = () => {
     const [open, setOpen] = useState(true);
-    const [showBoolValue, setShowBoolValue] = useState('')
-    const [dontShowAgain, setDontShowAgain] = useState(false)
+    let [dontShowAgain, setDontShowAgain] = useState(false)
 
     const handleOpen = () => {
         setOpen(true);
@@ -21,19 +20,21 @@ const HelpMessageContainer = () => {
     }
 
     useEffect(() => {
-        firebase.database().ref(`/dontShow`).once('value').then((snapshot) => {
+        const currentUser = firebase.auth().currentUser.uid
+        firebase.database().ref(`users/${currentUser}/dontShow`).once('value').then((snapshot) => {
             const showValue = snapshot.val()
-            Object.values(showValue).map(showOrNo => {
-                setShowBoolValue(showOrNo.dontShowAgain)
-                return []
-            })
+            if (showValue) {
+
+                if (dontShowAgain !== showValue.dontShowAgain) {
+                    setDontShowAgain(true)
+                    firebase.database().ref(`users/${currentUser}/dontShow`).update({ dontShowAgain })
+                }
+            }
+            if (!showValue) {
+                firebase.database().ref(`users/${currentUser}/dontShow`).set({ dontShowAgain })
+            }
         })
-        if (showBoolValue === false) {
-            firebase.database().ref(`/dontShow`).push({
-                dontShowAgain
-            })
-        }
-    }, [dontShowAgain, showBoolValue])
+    }, [dontShowAgain])
 
     return (
         <HelpMessage

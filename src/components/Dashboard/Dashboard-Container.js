@@ -8,8 +8,9 @@ const DashboardContainer = () => {
     const [loading, setLoading] = useState(false)
 
     const getImagesFromFirebase = () => {
+        const currentUser = firebase.auth().currentUser.uid
         setLoading(true)
-        firebase.database().ref(`websites`).once('value').then(snapshot => {
+        firebase.database().ref(`users/${currentUser}/websites`).once('value').then(snapshot => {
             const images = snapshot.val()
             setImagesFromFirebase(images)
         })
@@ -17,7 +18,8 @@ const DashboardContainer = () => {
     }
 
     const deleteUrlFromFirebase = (url) => {
-        firebase.database().ref(`websites/${url}`).remove()
+        const currentUser = firebase.auth().currentUser.uid
+        firebase.database().ref(`users/${currentUser}/websites/${url}`).remove()
         getImagesFromFirebase()
     }
 

@@ -14,7 +14,7 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase }) => {
                         <TableRow className="cardRow">
                             {Object.keys(imagesFromFirebase).map((key, index) => {
                                 return (
-                                    <TableCell className="cardCell">
+                                    <TableCell className="cardCell" key={imagesFromFirebase[key].url}>
                                         <a
                                             href={`//${imagesFromFirebase[key].url}`}
                                             target="_blank"
@@ -23,7 +23,6 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase }) => {
                                             <Card className="imgCard">
                                                 <img
                                                     src={`${imagesFromFirebase[key].favicon}`}
-                                                    key={imagesFromFirebase[key].url}
                                                     alt="Icon"
                                                 />
                                             </Card>

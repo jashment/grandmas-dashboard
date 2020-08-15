@@ -9,17 +9,23 @@ const SignInContainer = () => {
 
     const handleSignInWithGoogle = () => {
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
+
             return firebase.auth().signInWithPopup(provider).then(function (result) {
                 // This gives you a Google Access Token. You can use it to access the Google API.
-                var token = result.credential.accessToken;
+                var { accessToken } = result.credential;
                 // The signed-in user info.
-                var user = result.user;
-                firebase.database().ref('/users').push({
-                    email: user.email,
-                    uid: user.uid,
-                    name: user.displayName,
-                    token: token
-                })
+                var { user } = result;
+                console.log(result)
+                if (result.additionalUserInfo.isNewUser === false) {
+                    return null
+                } else {
+                    firebase.database().ref('/users/').child(`${user.uid}`).set({
+                        email: user.email,
+                        name: user.displayName,
+                        token: accessToken,
+                        uid: user.uid,
+                    })
+                }
             }).catch(function (error) {
                 console.log(error)
             });

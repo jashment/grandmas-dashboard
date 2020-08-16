@@ -13,7 +13,8 @@ const AddWebsiteModalContainer = () => {
     }
 
     const getWebsiteImage = () => {
-        firebase.database().ref('/websites').push({
+        const currentUser = firebase.auth().currentUser.uid
+        firebase.database().ref(`users/${currentUser}/websites`).push({
             url: websiteUrl, favicon: `https://api.faviconkit.com/${websiteUrl}/144`
         })
         setWebsiteUrl(null)

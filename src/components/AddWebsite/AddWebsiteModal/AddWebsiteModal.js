@@ -14,15 +14,13 @@ const AddWebsiteModal = ({ handleChange, websiteUrl, getWebsiteImage, handleShow
                 open={show}
                 onClose={handleClose}
             >
-                <DialogTitle><h2>Add a Website!</h2></DialogTitle>
+                <DialogTitle>Add a Website!</DialogTitle>
                 <DialogContent>
-
                     <form onSubmit={getWebsiteImage}>
                         <Button type="submit">Add</Button>
                         <TextField value={websiteUrl || ''} onChange={handleChange} />
                     </form>
                     <DialogActions>
-
                         <Button variant="outlined" onClick={handleClose}>Close</Button>
                     </DialogActions>
                 </DialogContent>

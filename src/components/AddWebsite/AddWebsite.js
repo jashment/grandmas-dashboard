@@ -12,7 +12,6 @@ const AddWebsite = ({ getWebsiteImage, handleChange, handleShow, handleClose, we
             <AppBar position="relative">
                 <Typography edge="end" variant="h2">Visual Bookmark</Typography>
             </AppBar>
-
             <form className="addFormWeb" onSubmit={getWebsiteImage}>
                 <Button type="submit">Add</Button>
                 <TextField value={websiteUrl || ''} onChange={handleChange} />

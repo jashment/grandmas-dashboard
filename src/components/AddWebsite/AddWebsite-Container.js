@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import AddWebsite from './AddWebsite'
 import * as firebase from 'firebase'
 import dotenv from 'dotenv'
@@ -24,31 +24,30 @@ const AddWebsiteContainer = () => {
 
     const handleChange = event => {
         setWebsiteUrl(event.target.value)
-        const currentUser = firebase.auth().currentUser
-        firebase.database().ref('/users').once('value').then(snap => {
-            const allUsers = snap.val()
-            return Object.values(allUsers).map(fireUser => {
-                if (fireUser.uid === currentUser.uid) {
-                    setSignedInUser(fireUser.uid)
-                }
-                return {}
-            })
-        })
-        console.log(signedInUser)
     }
 
     const getWebsiteImage = () => {
         const currentUser = firebase.auth().currentUser.uid
-        console.log(signedInUser)
-        console.log(currentUser)
-        if (currentUser === signedInUser) {
-            firebase.database().ref(`/users/${currentUser}/websites`).push({
-                url: websiteUrl, favicon: `https://api.faviconkit.com/${websiteUrl}/144`
-            })
-            setWebsiteUrl(null)
-        }
+        firebase.database().ref(`/users/${currentUser}/websites`).push({
+            url: websiteUrl, favicon: `https://api.faviconkit.com/${websiteUrl}/144`
+        })
+        setWebsiteUrl(null)
     }
 
+    useEffect(() => {
+        const currentUser = firebase.auth().currentUser
+        firebase.database().ref('/users').once('value').then(snap => {
+            const allUsers = snap.val()
+            if (allUsers) {
+                return Object.values(allUsers).map(fireUser => {
+                    if (currentUser.uid === fireUser.uid) {
+                        setSignedInUser(fireUser.uid)
+                    }
+                    return {}
+                })
+            }
+        })
+    }, [])
 
     return (
         <AddWebsite

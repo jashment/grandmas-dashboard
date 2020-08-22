@@ -9,3 +9,8 @@ p.modalText {
 .dontShowBtn span {
     color: red;
 }
+
+.progressCircle {
+    position: absolute;
+    top: 50%;
+}

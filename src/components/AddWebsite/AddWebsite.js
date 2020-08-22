@@ -13,8 +13,8 @@ const AddWebsite = ({ getWebsiteImage, handleChange, handleShow, handleClose, we
                 <Typography edge="end" variant="h2">Visual Bookmark</Typography>
             </AppBar>
             <form className="addFormWeb" onSubmit={getWebsiteImage}>
-                <Button type="submit">Add</Button>
-                <TextField value={websiteUrl || ''} onChange={handleChange} />
+                <Button className="addButtonWeb" color="primary" variant="contained" type="submit">Add</Button>
+                <TextField autoFocus={true} variant="outlined" value={websiteUrl || ''} onChange={handleChange} />
             </form>
             <IconButton onClick={handleShow} className="addFormMobile">
                 <AddCircleOutline />

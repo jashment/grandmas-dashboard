@@ -1,10 +1,11 @@
 import React from 'react'
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText } from '@material-ui/core'
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, CircularProgress } from '@material-ui/core'
 import AddWebsite from '../AddWebsite'
 import './HelpMessage.css'
 
 
-const HelpMessage = ({ dontShowAgain, handleClose, handleDontShow, open }) => {
+const HelpMessage = ({ dontShowAgain, handleClose, handleDontShow, loading, open }) => {
+    if (loading) return (<CircularProgress className="progressCircle" />)
     return (
         dontShowAgain === false ? (
             <>
@@ -30,6 +31,7 @@ const HelpMessage = ({ dontShowAgain, handleClose, handleDontShow, open }) => {
                 <AddWebsite />
             </>
         ) : <AddWebsite />
+
     )
 }
 

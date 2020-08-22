@@ -1,8 +1,10 @@
 header h2 {
     background: #FF4E50;  
-    background: #2980B9;  
-    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); 
-    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); 
+background: #00B4DB;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 @media only screen and (max-width: 600px) {
     form.addFormWeb {
@@ -18,12 +20,18 @@ header h2 {
         font-size: 4rem;
     }
     button.addFormMobile span svg path{
-        fill:#2980B9;
+        fill:#00B4DB;;
     }
 }
 
 @media only screen and (min-width: 605px) {
     button.addFormMobile {
         display: none;
+    }
+    form.addFormWeb {
+        padding: 10px;
+    }
+    button.addButtonWeb {
+        padding: 15px 14px;
     }
 }

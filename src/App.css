@@ -43,3 +43,9 @@ html, body, #root, .App {
     transform: rotate(360deg);
   }
 }
+
+.progressCircle {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+}

@@ -30,7 +30,7 @@ const Dashboard = ({ deleteUrlFromFirebase, imagesFromFirebase }) => {
                                                 <p>{imagesFromFirebase[key].url}</p>
                                             </div>
                                         </a>
-                                        <Button onClick={() => { deleteUrlFromFirebase(key) }}>Delete</Button>
+                                        <Button variant="contained" color="secondary" onClick={() => { deleteUrlFromFirebase(key) }}>Delete</Button>
                                     </TableCell>
                                 )
                             })}

@@ -6,7 +6,7 @@ const SignIn = ({ handleSignOut, handleSignInWithGoogle, authUser }) => {
     if (authUser) {
         return (
             <Card className="signOutCard">
-                <Button variant="contained" color="secondary" onClick={handleSignOut}>Sign Out</Button>
+                <Button disableElevation={true} color="secondary" onClick={handleSignOut}>Sign Out</Button>
             </Card>
         )
     }
